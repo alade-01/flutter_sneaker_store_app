@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/windows/Home/NewAndPopular/Components/Sender.dart';
+import '../windows/dashboard/Home/Story/Sender.dart';
 
 class LiveStroyItemModel {
   final String title;

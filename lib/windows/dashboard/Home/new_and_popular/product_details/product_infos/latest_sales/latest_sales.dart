@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:x_store/Source/source_shelf.dart';
 
-import 'Graph.dart';
-import 'Sales.dart';
+import 'sales.dart';
 
 class LatestSales extends StatelessWidget {
   const LatestSales({Key? key}) : super(key: key);
@@ -21,7 +20,14 @@ class LatestSales extends StatelessWidget {
             style: bold16(s, black100),
           ),
           SizedBox(height: hh(s, 20)),
-          Graph(s: s),
+          Container(
+            width: double.infinity,
+            height: hh(s, 272),
+            child: Image.asset(
+              "assets/images/graph.png",
+              fit: BoxFit.fitHeight,
+            ),
+          ),
           SizedBox(height: hh(s, 30)),
           Sales(s: s),
           SizedBox(height: hh(s, 10)),

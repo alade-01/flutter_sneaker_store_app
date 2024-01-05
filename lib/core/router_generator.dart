@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:x_store/windows/dashboard/Home/new_and_popular/product_details/product_detail.dart';
 // import 'package:login_register_app_ui_kit/windows/login_screen.dart';
 // import 'package:login_register_app_ui_kit/windows/new_password_screen.dart';
 // import 'package:login_register_app_ui_kit/windows/otp_screen.dart';
@@ -8,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../windows/auth/register_screen.dart';
 import '../windows/auth/sign_in_screen.dart';
 import '../windows/auth/welcome_screen.dart';
-import '../windows/dashboard_screen.dart';
+import '../windows/index_screen.dart';
 // import '../windows/forgot_password_screen.dart';
 // import '../windows/splash_screen.dart';
 // import '../windows/welcome_screen.dart';
@@ -18,11 +19,15 @@ class RouterGenerator {
   static const introRoute = "/intro";
   static const loginRoute = "/login";
   static const registerRoute = "/register";
+
   static const forgotPasswordRoute = "/forgot-password";
   static const otpRoute = "/otp";
   static const newPasswordRoute = "/new-password";
   static const passwordChangedRoute = "/password-changed";
+
+
   static const dashboardRoute = "/dashboard";
+  static const productDetailRoute = "/product-detail";
 
   // static const indexRoute = "/index";
 
@@ -63,7 +68,11 @@ class RouterGenerator {
       //   );
        case RouterGenerator.dashboardRoute:
          return MaterialPageRoute(
-           builder: (_) =>  DashboardScreen(),
+           builder: (_) =>  IndexScreen(),
+         );
+         case RouterGenerator.productDetailRoute:
+         return MaterialPageRoute(
+           builder: (_) =>  ProductDetail(),
          );
       default:
         return MaterialPageRoute(

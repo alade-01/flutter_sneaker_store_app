@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:x_store/Models/ProductItemModel.dart';
 import 'package:x_store/Source/source_shelf.dart';
-import 'package:x_store/windows/Home/NewAndPopular/ProductDetail/ProductDetail.dart';
+
+import '../../core/router_generator.dart';
+import '../../windows/dashboard/Home/new_and_popular/product_details/product_detail.dart';
 
 class ProductItemvert extends StatelessWidget {
   const ProductItemvert({
@@ -17,9 +19,7 @@ class ProductItemvert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        goPush(context, ProductDetail());
-      },
+      onTap: () => Navigator.pushNamed(context, RouterGenerator.productDetailRoute),
       child: Container(
         width: ww(s, 150),
         height: double.infinity,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'Cover.dart';
-import 'ProductInfos/ProductInfos.dart';
+import 'package:x_store/windows/dashboard/Home/new_and_popular/product_details/product_infos/product_infos.dart';
+import 'product_infos/cover.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail({Key? key}) : super(key: key);

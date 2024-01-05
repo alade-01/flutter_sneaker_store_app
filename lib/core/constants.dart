@@ -24,7 +24,7 @@ const Color backgroundColors = Color.fromRGBO(219, 227, 230, 1);
 const MESSAGE_LOADING = "Chargement en cours";
 const MESSAGE_EMPTY = "Aucune donnée";
 
-const PRIMARY_FONT = "Urbanist";
+const PRIMARY_FONT = "Poppins";
 const SECONDARY_FONT = "Lato";
 const USED_FONT = PRIMARY_FONT;
 
@@ -34,16 +34,16 @@ TextStyle textStyleInput = TextStyle(color: secondaryColor, fontSize: 17);
 
 // 0xFF35C2C1 #35C2C1
 Map<int, Color> color0 = {
-  50: const Color.fromRGBO(53, 194, 193, .1),
-  100: const Color.fromRGBO(53, 194, 193, .2),
-  200: const Color.fromRGBO(53, 194, 193, .3),
-  300: const Color.fromRGBO(53, 194, 193, .4),
-  400: const Color.fromRGBO(53, 194, 193, .5),
-  500: const Color.fromRGBO(53, 194, 193, .6),
-  600: const Color.fromRGBO(53, 194, 193, .7),
-  700: const Color.fromRGBO(53, 194, 193, .8),
-  800: const Color.fromRGBO(53, 194, 193, .9),
-  900: const Color.fromRGBO(53, 194, 193, 1.0),
+  50: const Color.fromRGBO(205, 18, 31, .1),
+  100: const Color.fromRGBO(205, 18, 31, .2),
+  200: const Color.fromRGBO(205, 18, 31, .3),
+  300: const Color.fromRGBO(205, 18, 31, .4),
+  400: const Color.fromRGBO(205, 18, 31, .5),
+  500: const Color.fromRGBO(205, 18, 31, .6),
+  600: const Color.fromRGBO(205, 18, 31, .7),
+  700: const Color.fromRGBO(205, 18, 31, .8),
+  800: const Color.fromRGBO(205, 18, 31, .9),
+  900: const Color.fromRGBO(205, 18, 31, 1.0),
 };
 
 // 0xFF1E232C #1E232C
@@ -74,7 +74,7 @@ Map<int, Color> swatchColor = {
   900: const Color.fromRGBO(131, 145, 161, 1.0),
 };
 
-MaterialColor primaryColor = MaterialColor(0xFF35C2C1, color0);
+MaterialColor primaryColor = MaterialColor(0xFFCD121F, color0);
 MaterialColor secondaryColor = MaterialColor(0xFF1E232C, color1);
 MaterialColor swatchColorItem = MaterialColor(0xFF8391A1, swatchColor);
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:x_store/Source/source_shelf.dart';
-import 'package:x_store/windows/Home/Story/StoryItemDetail.dart';
+
+import '../StoryItemDetail.dart';
 
 class LiveStroyItem extends StatelessWidget {
   const LiveStroyItem({

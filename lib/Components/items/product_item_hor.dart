@@ -2,24 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:x_store/Models/ProductItemModel.dart';
 import 'package:x_store/Source/source_shelf.dart';
-import 'package:x_store/windows/Home/NewAndPopular/ProductDetail/ProductDetail.dart';
+
+import '../../core/router_generator.dart';
+import '../../windows/dashboard/Home/new_and_popular/product_details/product_detail.dart';
 
 class ProductItemHor extends StatelessWidget {
   const ProductItemHor({
     Key? key,
     required this.s,
     required this.item,
+    this.callback
   }) : super(key: key);
 
   final Size s;
   final ProductItemModel item;
+  final Function? callback;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        goPush(context, ProductDetail());
-      },
+      onTap:  () => Navigator.pushNamed(context, RouterGenerator.productDetailRoute),
       child: Container(
         width: ww(s, 315),
         height: hh(s, 88),

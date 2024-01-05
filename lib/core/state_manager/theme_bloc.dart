@@ -36,8 +36,7 @@ class ThemeCubit extends Cubit<ThemeData> {
       ),
       titleMedium: TextStyle(
         color: primaryColor,
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
+        fontSize: 18,
       ),
 
       // labelLarge: const TextStyle(
@@ -47,7 +46,7 @@ class ThemeCubit extends Cubit<ThemeData> {
 
       labelMedium: const TextStyle(
         fontWeight: FontWeight.w500,
-        fontSize: 17,
+        fontSize: 16,
       ),
 
       // labelSmall: const TextStyle(
@@ -101,7 +100,7 @@ class ThemeCubit extends Cubit<ThemeData> {
           borderSide: const BorderSide(width: 0, color: Color(0xFFF7F8F9)),
           borderRadius: BorderRadius.circular(10)),
       focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 0.7, color: primaryColor),
+          borderSide: BorderSide(width: 0.7, color: secondaryColor),
           borderRadius: BorderRadius.circular(10)),
       errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(width: 0.7, color: Colors.redAccent),

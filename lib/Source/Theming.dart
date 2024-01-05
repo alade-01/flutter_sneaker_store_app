@@ -14,4 +14,4 @@ Color white5 = Color(0xffffffff).withOpacity(0.05);
 
 Color blue = Color(0xff0008C7);
 Color green = Color(0xff42D70D);
-Color red = Color(0xffFF2343);
+Color red = Color(0xFFCD121F);
