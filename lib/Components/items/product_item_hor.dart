@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Models/ProductItemModel.dart';
+import 'package:x_store/Models/product_item_model.dart';
 import 'package:x_store/Source/source_shelf.dart';
 
 import '../../core/router_generator.dart';

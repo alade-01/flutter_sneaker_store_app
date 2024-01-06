@@ -6,9 +6,12 @@ import 'package:x_store/windows/dashboard/Home/new_and_popular/product_details/p
 // import 'package:login_register_app_ui_kit/windows/password_changed_screen.dart';
 // import 'package:login_register_app_ui_kit/windows/register_screen.dart';
 
+
+import '../Components/items/story_item_detail.dart';
 import '../windows/auth/register_screen.dart';
 import '../windows/auth/sign_in_screen.dart';
 import '../windows/auth/welcome_screen.dart';
+import '../windows/dashboard/Profile/settings.dart';
 import '../windows/index_screen.dart';
 // import '../windows/forgot_password_screen.dart';
 // import '../windows/splash_screen.dart';
@@ -28,7 +31,8 @@ class RouterGenerator {
 
   static const dashboardRoute = "/dashboard";
   static const productDetailRoute = "/product-detail";
-
+  static const storyDetailRoute = "/story-detail";
+  static const settingsRoute = "/settings";
   // static const indexRoute = "/index";
 
   static Route<dynamic> navigate(RouteSettings setting) {
@@ -73,6 +77,14 @@ class RouterGenerator {
          case RouterGenerator.productDetailRoute:
          return MaterialPageRoute(
            builder: (_) =>  ProductDetail(),
+         );
+         case RouterGenerator.storyDetailRoute:
+         return MaterialPageRoute(
+           builder: (_) => StoryItemDetail(),
+         );
+         case RouterGenerator.settingsRoute:
+         return MaterialPageRoute(
+           builder: (_) => Settings(),
          );
       default:
         return MaterialPageRoute(

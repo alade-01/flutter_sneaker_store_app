@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../core/constants.dart';
-import 'dashboard/Home/Story/Story.dart';
+import 'dashboard/Home/Story/story.dart';
 import 'dashboard/Home/new_and_popular/new_and_popular.dart';
-import 'dashboard/Profile/Profile.dart';
-import 'dashboard/Search/Search.dart';
+import 'dashboard/Profile/profile.dart';
+import 'dashboard/Search/search.dart';
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class _IndexScreenState extends State<IndexScreen> {
       "isActive": false,
     },
     {
-      'screen': const Search(),
+      'screen': Search(),
       "label": "Chercher",
       "icon": Icons.search,
       "isActive": false,

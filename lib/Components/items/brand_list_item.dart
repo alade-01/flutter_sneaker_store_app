@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Models/BrandListItemModel.dart';
+import 'package:x_store/Models/brand_list_item_model.dart';
 import 'package:x_store/Source/source_shelf.dart';
 
 class BrandListItem extends StatelessWidget {
