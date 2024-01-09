@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
+
 
 class StretchButton extends StatelessWidget {
   const StretchButton({
@@ -27,7 +27,7 @@ class StretchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: secondaryPadding(s)),
+      padding: EdgeInsets.symmetric(horizontal: (s.width * 14) / 375),
       child: Material(
         borderRadius: BorderRadius.circular(borderRadius ?? 100),
         elevation: elevation ?? 0,
@@ -35,11 +35,11 @@ class StretchButton extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(100),
-          splashColor: tapColor ?? black10,
-          focusColor: tapColor ?? black10,
+          splashColor: tapColor ?? Colors.black.withOpacity(0.1),
+          focusColor: tapColor ?? Colors.black.withOpacity(0.1),
           child: Container(
             width: width ?? double.infinity,
-            height: height ?? hh(s, 56),
+            height: height ?? (s.height * 56) / 812,
             child: Center(child: child),
             decoration: BoxDecoration(
               boxShadow: [],

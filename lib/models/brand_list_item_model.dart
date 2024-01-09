@@ -1,6 +1,5 @@
 class BrandListItemModel {
-  final String img;
-  final String name;
+  final String img,name;
   final int number;
 
   BrandListItemModel(this.img, this.name, this.number);

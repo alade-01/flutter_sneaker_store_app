@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:x_store/Components/components_shelf.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
+import '../shared/CircleButton.dart';
+import '../shared/StretchButton.dart';
 import 'info_items_and_data.dart';
 
 class StoryItemDetail extends StatelessWidget {
@@ -16,47 +15,47 @@ class StoryItemDetail extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: ww(s, 375),
-              height: hh(s, 375),
+              width: (s.width * 375) / 375,
+              height: (s.height * 375) / 812,
               alignment: Alignment.topLeft,
               child: Padding(
-                padding: EdgeInsets.only(left: ww(s, 30), top: hh(s, 54)),
+                padding: EdgeInsets.only(left: (s.width * 30) / 375, top: (s.height * 54) / 812),
                 child: CircleButton(
-                  s: s,
-                  onTap: () => back(context),
-                  color: white30,
-                  child: SvgPicture.asset(
-                    "assets/icons/chevronLeft.svg",
-                    width: hh(s, 24),
-                    height: hh(s, 24),
-                  ),
+                  onTap: () => Navigator.of(context).pop(),
+                  child: Icon(Icons.arrow_back,color: Colors.black),
                 ),
               ),
               decoration: BoxDecoration(
-                color: red,
+                color: Colors.red,
                 image: DecorationImage(
-                  image: AssetImage("assets/images/p7.png"),
+                  image: AssetImage("res/images/p7.png"),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             Container(
-              width: ww(s, 375),
-              height: hh(s, 244),
-              color: black100,
+              width: (s.width * 375) / 375,
+              height: (s.height * 244) / 812,
+              color: Colors.black.withOpacity(0.10),
               padding: EdgeInsets.symmetric(
-                  horizontal: secondaryPadding(s), vertical: hh(s, 40)),
+                  horizontal: (s.width * 30) / 375, vertical: (s.height * 40) / 812),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "The stock market for things",
-                    style: bold20(s, white100),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700)
                   ),
                   Spacer(),
                   Text(
                     "X-S-Store is the world’s first stock market for things – a live ‘bid/ask’ marketplace. Buyers place bids, sellers place asks and when a bid and ask meet, the transaction happens automatically. Retro Jordans, Nikes, Yeezys and more – now 100% authentic guaranteed.",
-                    style: regular14(s, white60),
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w700)
                   ),
                 ],
               ),
@@ -64,34 +63,33 @@ class StoryItemDetail extends StatelessWidget {
             TheInfo(
               s: s,
               header: "The Basic",
-              bgColor: white100,
+              bgColor: Colors.white,
               infoItems: basifInfoItems,
-              height: hh(s, 372),
+              height: (s.height * 372) / 812,
             ),
             TheInfo(
               s: s,
               header: "Buying on X-S-Store",
-              bgColor: black5,
+              bgColor: Colors.black.withOpacity(0.5),
               infoItems: buyingItems,
-              height: hh(s, 444),
+              height: (s.height * 444) / 812,
               child: Column(
                 children: [
-                  SizedBox(height: hh(s, 16)),
-                  Container(
-                    child: Center(
-                      child: StretchButton(
-                        s: s,
-                        child: Text(
-                          "Learn More",
-                          style: bold16(s, white100),
-                        ),
-                        color: green,
-                        tapColor: blue,
-                        elevation: 3,
-                        width: ww(s, 160),
-                        onTap: () {},
-                      ),
+                  SizedBox(height: (s.height * 16) / 812),
+                  StretchButton(
+                    s: s,
+                    child: Text(
+                      "Learn More",
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700)
                     ),
+                    color: Colors.green,
+                    tapColor: Colors.blue,
+                    elevation: 3,
+                    width: (s.width * 160) / 375,
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -99,24 +97,27 @@ class StoryItemDetail extends StatelessWidget {
             TheInfo(
               s: s,
               header: "Selling on X-S-Store",
-              bgColor: white100,
+              bgColor: Colors.white,
               infoItems: sellingItems,
-              height: hh(s, 444),
+              height: (s.height * 444) / 812,
               child: Column(
                 children: [
-                  SizedBox(height: hh(s, 16)),
+                  SizedBox(height: (s.height * 16) / 812),
                   Container(
                     child: Center(
                       child: StretchButton(
                         s: s,
                         child: Text(
                           "Learn More",
-                          style: bold16(s, white100),
+                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700)
                         ),
-                        color: red,
-                        tapColor: blue,
+                        color: Colors.red,
+                        tapColor: Colors.blue,
                         elevation: 3,
-                        width: ww(s, 160),
+                        width: (s.width * 160) / 375,
                         onTap: () {},
                       ),
                     ),

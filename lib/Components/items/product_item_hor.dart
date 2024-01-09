@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:x_store/Models/product_item_model.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 import '../../core/router_generator.dart';
-import '../../windows/dashboard/Home/new_and_popular/product_details/product_detail.dart';
 
 class ProductItemHor extends StatelessWidget {
   const ProductItemHor({
@@ -23,42 +21,51 @@ class ProductItemHor extends StatelessWidget {
     return GestureDetector(
       onTap:  () => Navigator.pushNamed(context, RouterGenerator.productDetailRoute),
       child: Container(
-        width: ww(s, 315),
-        height: hh(s, 88),
+        width: (s.width * 315) / 375,
+        height: (s.height * 88) / 812,
         child: Row(
           children: [
             Container(
-              width: hh(s, 88),
-              height: hh(s, 88),
+              width: (s.height * 88) / 812,
+              height: (s.height * 88) / 812,
               child: Center(
                 child: Image.asset(
                   item.image,
-                  width: ww(s, 120),
+                  width: (s.width * 120) / 375,
                 ),
               ),
               decoration: BoxDecoration(
-                color: white100,
-                borderRadius: BorderRadius.circular(ww(s, 12)),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular((s.width * 12) / 375),
               ),
             ),
-            SizedBox(width: ww(s, 15)),
+            SizedBox(width: (s.width * 15) / 375),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SvgPicture.asset(item.brand, width: ww(s, 24)),
+                SvgPicture.asset(item.brand, width: (s.width * 24) / 375),
                 Container(
                   child: Text(
                     item.model,
-                    style: regular12(s, black100),
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
                   ),
                 ),
                 Text(
                   item.title,
-                  style: regular11(s, black30),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500),
                 ),
                 Text(
                   item.price,
-                  style: bold14(s, black100),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500),
                 ),
               ],
             ),

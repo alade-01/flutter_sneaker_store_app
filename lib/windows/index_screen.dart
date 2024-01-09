@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../core/constants.dart';
-import 'dashboard/Home/Story/story.dart';
-import 'dashboard/Home/new_and_popular/new_and_popular.dart';
 import 'dashboard/Profile/profile.dart';
 import 'dashboard/Search/search.dart';
+import 'dashboard/new_and_popular/new_and_popular.dart';
+import 'dashboard/story/story.dart';
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key}) : super(key: key);

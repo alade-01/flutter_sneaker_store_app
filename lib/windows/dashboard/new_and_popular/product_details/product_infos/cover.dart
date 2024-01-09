@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Components/components_shelf.dart';
-import 'package:x_store/Source/source_shelf.dart';
+
+import '../../../../../Components/shared/CircleButton.dart';
 
 class Cover extends StatefulWidget {
   const Cover({
@@ -22,9 +21,9 @@ class _CoverState extends State<Cover> {
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
     return Container(
-      width: ww(widget.s, 375),
-      height: ww(widget.s, 375),
-      color: white100,
+      width: (s.width * 375) / 375,
+      height: (s.width * 375) / 375,
+      color: Colors.white,
       child: Stack(
         children: [
           PageView.builder(
@@ -34,13 +33,13 @@ class _CoverState extends State<Cover> {
             onPageChanged: (val) => setState(() => page = val),
             itemBuilder: (context, index) {
               return Container(
-                width: ww(widget.s, 375),
-                height: ww(widget.s, 375),
-                color: white100,
+                width: (s.width * 375) / 375,
+                height: (s.width * 375) / 375,
+                color: Colors.white,
                 child: Center(
                   child: Container(
-                    width: ww(s, 300),
-                    height: hh(s, 214),
+                    width: (s.width * 300) / 300,
+                    height: (s.width * 214) / 214,
                     child: Image.asset(
                       images[index],
                       fit: BoxFit.cover,
@@ -53,19 +52,19 @@ class _CoverState extends State<Cover> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: hh(s, 54)),
+              padding: EdgeInsets.only(bottom: (s.height * 54) / 812),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(images.length, (index) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: hh(s, 2)),
+                    padding: EdgeInsets.symmetric(horizontal: (s.height * 2) / 812),
                     child: AnimatedContainer(
                       duration: Duration(milliseconds: 240),
-                      width: index == page ? ww(s, 40) : ww(s, 6),
-                      height: hh(s, 2),
+                      width: index == page ? (s.width * 40) / 375 : (s.width * 6) / 375,
+                      height: (s.height * 2) / 812,
                       decoration: BoxDecoration(
-                        color: index == page ? black100 : black10,
-                        borderRadius: BorderRadius.circular(hh(s, 2)),
+                        color: index == page ? Colors.black : Colors.black.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular((s.height * 2) / 812),
                       ),
                     ),
                   );
@@ -74,46 +73,28 @@ class _CoverState extends State<Cover> {
             ),
           ),
           Positioned(
-            top: hh(s, 54),
+            top: (s.height * 54) / 812,
             left: 0,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: ww(s, 30)),
+              padding: EdgeInsets.symmetric(horizontal: (s.width * 30) / 375),
               width: s.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleButton(
-                    s: s,
-                    onTap: () => back(context),
-                    color: black5,
-                    child: SvgPicture.asset(
-                      "assets/icons/chevronLeft.svg",
-                      width: hh(s, 24),
-                      height: hh(s, 24),
-                    ),
+                    onTap: () => Navigator.of(context),
+                    child: Icon(Icons.arrow_back,color: Colors.black),
                   ),
                   Row(
                     children: [
                       CircleButton(
-                        s: s,
-                        onTap: () => back(context),
-                        color: Colors.white,
-                        child: SvgPicture.asset(
-                          "assets/icons/plus.svg",
-                          width: hh(s, 24),
-                          height: hh(s, 24),
-                        ),
+                        onTap: () => Navigator.of(context),
+                        child: Icon(Icons.add,color: Colors.black),
                       ),
-                      SizedBox(width: ww(s, 10)),
+                      SizedBox(width:(s.width * 10) / 375),
                       CircleButton(
-                        s: s,
-                        onTap: () => back(context),
-                        color: Colors.white,
-                        child: SvgPicture.asset(
-                          "assets/icons/more.svg",
-                          width: hh(s, 24),
-                          height: hh(s, 24),
-                        ),
+                        onTap: () => Navigator.of(context),
+                        child: Icon(Icons.more_horiz,color: Colors.black),
                       ),
                     ],
                   ),
@@ -128,7 +109,7 @@ class _CoverState extends State<Cover> {
 }
 
 List<String> images = [
-  "assets/images/p21.png",
-  "assets/images/p20.png",
-  "assets/images/p19.png",
+  "res/images/p21.png",
+  "res/images/p20.png",
+  "res/images/p19.png",
 ];

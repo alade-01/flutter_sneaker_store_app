@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:x_store/Models/product_item_model.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
-import '../../../../Components/BaseSection.dart';
+import '../../../../Components/layouts/BaseSection.dart';
 import '../../../../Components/items/brand_list_item.dart';
 import '../../../../Components/items/product_item_hor.dart';
 import '../../../../Components/items/product_item_vert.dart';
@@ -22,7 +21,7 @@ List<Column> horizontalData(Size s, List<ProductItemModel> items) {
     columns.add(Column(
       children: List.generate(ne.length, (index) {
         return Padding(
-          padding: EdgeInsets.only(bottom: ww(s, 15)),
+          padding: EdgeInsets.only(bottom: (s.width * 15) / 375),
           child: ProductItemHor(s: s,item: ne[index],
           ),
         );
@@ -45,131 +44,131 @@ class NewAndPopular extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: hh(s, 74)),
-          horizontalPadding30(
-            s,
-            child: Text(
-              "Today",
-              style: bold28(s, black100),
-            ),
-          ),
+          SizedBox(height: (s.height * 74) / 812),
+    Text(
+    "Today",
+    style:  Theme.of(context).textTheme.labelLarge!.copyWith(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w500),
+    ),
           NewInCarousel(),
-          SizedBox(height: hh(s, 60)),
+          SizedBox(height: (s.height * 60) / 812),
           BaseSection(
             s: s,
             header: "Just Dropped",
             content: Container(
-              height: hh(s, 234),
+              height: (s.height * 234) / 812,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: ww(s, 30)),
+                padding: EdgeInsets.only(left: (s.width * 30) / 375),
                 physics: BouncingScrollPhysics(),
                 itemCount: justDroppedItems.length,
                 itemBuilder: (context, index) {
                   var item = justDroppedItems[index];
                   return Padding(
-                      padding: EdgeInsets.only(right: ww(s, 15)),
+                      padding: EdgeInsets.only(right: (s.width * 15) / 375),
                       child: ProductItemvert(s: s, item: item));
                 },
               ),
             ),
           ),
 
-          SizedBox(height: hh(s, 60)),
+          SizedBox(height: (s.height * 60) / 812),
           BaseSection(
             s: s,
             header: "Most Popular",
             content: Container(
-              height: hh(s, 234),
+              height: (s.height * 234) / 812,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: ww(s, 30)),
+                padding: EdgeInsets.only(left: (s.width * 30) / 375),
                 physics: BouncingScrollPhysics(),
                 itemCount: horizontalData(s, mostPopularItems).length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(right: ww(s, 15)),
+                    padding: EdgeInsets.only(right: (s.width * 15) / 375),
                     child: horizontalData(s, mostPopularItems)[index],
                   );
                 },
               ),
             ),
           ),
-          SizedBox(height: hh(s, 60)),
+          SizedBox(height: (s.height * 60) / 812),
           BaseSection(
             s: s,
             header: "Popular Brands",
-            height: hh(s, 160),
+            height: (s.height * 160) / 812,
             content: Container(
-              height: hh(s, 112),
+              height: (s.height * 112) / 812,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: ww(s, 30)),
+                padding: EdgeInsets.only(left: (s.width * 30) / 375),
                 physics: BouncingScrollPhysics(),
                 itemCount: brandItems.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(right: ww(s, 10)),
+                    padding: EdgeInsets.only(right: (s.width * 10) / 375),
                     child: BrandListItem(s: s, item: brandItems[index]),
                   );
                 },
               ),
             ),
           ),
-          SizedBox(height: hh(s, 60)),
+          SizedBox(height: (s.height * 60) / 812),
           BaseSection(
             s: s,
             header: "Recommended For You",
             content: Container(
-              height: hh(s, 234),
+              height: (s.height * 234) / 812,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: ww(s, 30)),
+                padding: EdgeInsets.only(left: (s.width * 30) / 375),
                 physics: BouncingScrollPhysics(),
                 itemCount: recommendedItems.length,
                 itemBuilder: (context, index) {
                   var item = recommendedItems[index];
                   return Padding(
-                      padding: EdgeInsets.only(right: ww(s, 15)),
+                      padding: EdgeInsets.only(right: (s.width * 15) / 375),
                       child: ProductItemvert(s: s, item: item));
                 },
               ),
             ),
           ),
-          SizedBox(height: hh(s, 60)),
+          SizedBox(height: (s.height * 60) / 812),
           BaseSection(
             s: s,
             header: "New Lowest Asks",
             content: Container(
-              height: hh(s, 234),
+              height: (s.height * 234) / 812,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: ww(s, 30)),
+                padding: EdgeInsets.only(left: (s.width * 30) / 375),
                 physics: BouncingScrollPhysics(),
                 itemCount: horizontalData(s, mostPopularItems).length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(right: ww(s, 15)),
+                    padding: EdgeInsets.only(right: (s.width * 15) / 375),
                     child: horizontalData(s, mostPopularItems)[index],
                   );
                 },
               ),
             ),
           ),
-          SizedBox(height: hh(s, 60)),
+          SizedBox(height: (s.height * 60) / 812),
           BaseSection(
             s: s,
             header: "New Highest Asks",
             content: Container(
-              height: hh(s, 234),
+              height: (s.height * 234) / 812,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: ww(s, 30)),
+                padding: EdgeInsets.only(left: (s.width * 30) / 375),
                 physics: BouncingScrollPhysics(),
                 itemCount: horizontalData(s, mostPopularItems).length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(right: ww(s, 15)),
+                    padding: EdgeInsets.only(right: (s.width * 15) / 375),
                     child: horizontalData(s, mostPopularItems)[index],
                   );
                 },

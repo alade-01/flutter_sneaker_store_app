@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 class TheInfoItem extends StatelessWidget {
   const TheInfoItem({
@@ -19,12 +18,18 @@ class TheInfoItem extends StatelessWidget {
       children: [
         Text(
           title,
-          style: bold16(s, black100),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              color: Colors.black,
+              fontSize: 16,
+              fontWeight: FontWeight.w500),
         ),
-        SizedBox(height: hh(s, 8)),
+        SizedBox(height: (s.height * 8) / 812),
         Text(
           subTitle,
-          style: regular14(s, black60),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              color: Colors.black,
+              fontSize: 16,
+              fontWeight: FontWeight.w500),
         ),
       ],
     );

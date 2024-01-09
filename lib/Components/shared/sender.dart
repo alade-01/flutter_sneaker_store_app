@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 class Sender extends StatelessWidget {
   final String? img;
@@ -22,8 +21,8 @@ class Sender extends StatelessWidget {
       children: [
         if (name != "X-Store")
           Container(
-            width: ww(s, 16),
-            height: ww(s, 16),
+            width: (s.width * 16) / 375,
+            height: (s.width * 16) / 375,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
@@ -33,25 +32,34 @@ class Sender extends StatelessWidget {
             ),
           ),
         SizedBox(
-          width: ww(s, 8),
+          width: (s.width * 8) / 375,
         ),
         Text(
           name,
-          style: bold12(s, white100),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500),
         ),
         SizedBox(
-          width: ww(s, 8),
+          width: (s.width * 8) / 375,
         ),
         Text(
           views,
-          style: regular11(s, white100),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500),
         ),
         SizedBox(
-          width: ww(s, 8),
+          width: (s.width * 8) / 375,
         ),
         Text(
           time,
-          style: regular11(s, white100),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500),
         ),
       ],
     );

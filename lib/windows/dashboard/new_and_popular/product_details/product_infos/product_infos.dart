@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 import '../../../../../../Data/most_popular_data.dart';
+
 import '../../new_and_popular.dart';
 import 'latest_sales/latest_sales.dart';
 
@@ -15,13 +15,13 @@ class ProductInfos extends StatelessWidget {
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
     return Positioned(
-      top: hh(s, 351),
+      top: (s.height * 351) / 812,
       left: 0,
       child: Container(
         width: s.width,
-        height: s.height - hh(s, 351),
+        height: s.height - (s.height * 351) / 812,
         padding:
-            EdgeInsets.only(left: ww(s, 30), right: ww(s, 30), top: ww(s, 30)),
+            EdgeInsets.only(left: (s.width * 30) / 375, right: (s.width * 30) / 375, top: (s.width * 30) / 375),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,46 +31,58 @@ class ProductInfos extends StatelessWidget {
                 children: [
                   Text(
                     "Size All",
-                    style: bold16(s, black100),
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
                   ),
                   SvgPicture.asset(
-                    "assets/icons/chevronDown.svg",
-                    width: ww(s, 24),
+                    "res/icons/chevronDown.svg",
+                    width: (s.width * 24) / 375,
                   )
                 ],
               ),
-              SizedBox(height: hh(s, 30)),
+              SizedBox(height: (s.height * 30) / 812),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Material(
-                    borderRadius: BorderRadius.circular(ww(s, 12)),
+                    borderRadius: BorderRadius.circular((s.width * 12) / 375),
                     elevation: 0,
-                    color: green,
+                    color: Colors.green,
                     child: InkWell(
                       onTap: () {},
                       borderRadius: BorderRadius.circular(100),
                       child: Container(
-                        width: ww(s, 150),
-                        height: hh(s, 72),
+                        width: (s.width * 150) / 375,
+                        height: (s.height * 72) / 812,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               "Buy \$214",
-                              style: bold20(s, white100),
+                              style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   "or Bid",
-                                  style: regular12(s, white60),
+                                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
                                 ),
-                                SizedBox(width: ww(s, 10)),
+                                SizedBox(width: (s.width * 10) / 375),
                                 Text(
                                   "Lowest Ask",
-                                  style: regular12(s, white100),
+                                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
                                 ),
                               ],
                             ),
@@ -83,33 +95,42 @@ class ProductInfos extends StatelessWidget {
                     ),
                   ),
                   Material(
-                    borderRadius: BorderRadius.circular(ww(s, 12)),
+                    borderRadius: BorderRadius.circular((s.width * 12) / 375),
                     elevation: 0,
-                    color: red,
+                    color: Colors.red,
                     child: InkWell(
                       onTap: () {},
                       borderRadius: BorderRadius.circular(100),
                       child: Container(
-                        width: ww(s, 150),
-                        height: hh(s, 72),
+                        width: (s.width * 150) / 375,
+                        height: (s.height * 72) / 812,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               "Sell \$265",
-                              style: bold20(s, white100),
+                              style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   "or Ask",
-                                  style: regular12(s, white60),
+                                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
                                 ),
-                                SizedBox(width: ww(s, 10)),
+                                SizedBox(width: (s.width * 10) / 375),
                                 Text(
                                   "Highest Bid",
-                                  style: regular12(s, white100),
+                                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
                                 ),
                               ],
                             ),
@@ -123,28 +144,36 @@ class ProductInfos extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: hh(s, 30)),
+              SizedBox(height: (s.height * 30) / 812),
               Container(
                 width: double.infinity,
-                height: hh(s, 90),
+                height: (s.height * 90) / 812,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Jordan 14 Retro Gym Red Toro",
-                      style: bold28(s, black100),
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
                     ),
                     RichText(
                       text: TextSpan(
-                        style: regular12(s, black100),
+                        style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
                         children: [
                           TextSpan(
                             text: "Condition:",
                           ),
                           TextSpan(
                             text: "New",
-                            style: regular12(s, green),
+                            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                color: Colors.green,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
                           ),
                           TextSpan(
                             text: " • ",
@@ -157,7 +186,10 @@ class ProductInfos extends StatelessWidget {
                           ),
                           TextSpan(
                             text: "100% Authentic",
-                            style: regular12(s, green),
+                            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                color: Colors.green,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -165,20 +197,23 @@ class ProductInfos extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: hh(s, 60)),
+              SizedBox(height: (s.height * 60) / 812),
               Container(
                 width: double.infinity,
-                height: hh(s, hh(s, 184)),
+                height: (s.height * (s.height * 184) / 812) / 812 ,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Information",
-                      style: bold16(s, black100),
+                        style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
                     ),
                     SizedBox(height: 20),
                     Container(
-                      height: hh(s, 140),
+                      height: (s.height * 140) / 812,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -214,29 +249,32 @@ class ProductInfos extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: hh(s, 60)),
+              SizedBox(height: (s.height * 60) / 812),
               LatestSales(),
-              SizedBox(height: hh(s, 60)),
+              SizedBox(height: (s.height * 60) / 812),
               Container(
                 width: double.infinity,
-                height: hh(s, 282),
+                height: (s.height * 282) / 812,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Related Products",
-                      style: bold20(s, black100),
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
                     ),
                     Spacer(),
                     Container(
-                      height: hh(s, 234),
+                      height: (s.height * 234) / 812,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         physics: BouncingScrollPhysics(),
                         itemCount: horizontalData(s, mostPopularItems).length,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: EdgeInsets.only(right: ww(s, 15)),
+                            padding: EdgeInsets.only(right: (s.width * 15) / 375),
                             child: horizontalData(s, mostPopularItems)[index],
                           );
                         },
@@ -249,13 +287,13 @@ class ProductInfos extends StatelessWidget {
           ),
         ),
         decoration: BoxDecoration(
-          color: white100,
+          color: Colors.white,
           borderRadius: BorderRadius.vertical(
-            top: Radius.circular(ww(s, 24)),
+            top: Radius.circular((s.width * 24) / 375),
           ),
           boxShadow: [
             BoxShadow(
-              color: black10,
+              color: Colors.black,
               offset: Offset(0, -6),
               blurRadius: 12,
             ),

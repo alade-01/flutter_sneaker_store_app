@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
+
 
 class UserInfos extends StatelessWidget {
   const UserInfos({
@@ -50,25 +50,29 @@ class UserInfoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
     return Container(
-      height: hh(s, 44),
+      height: (s.height * 44) / 812,
       alignment: Alignment.centerLeft,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             name,
-            style: bold20(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
           hasChild
               ? Container(
                   padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                   child: Text(
                     count!,
-                    style: bold14(s, black60),
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
-                    color: black5,
+                    color: Colors.black.withOpacity(0.5),
                   ),
                 )
               : Container(),

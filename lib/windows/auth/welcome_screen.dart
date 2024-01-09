@@ -16,58 +16,60 @@ class WelcomeScreen extends StatelessWidget {
         height: size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/bg.png"),
+            image: AssetImage("res/images/bg.png"),
             fit: BoxFit.cover,
           ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                  child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 40.0),
-                    child: Text(
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                    child: Column(
+                  children: [
+                    Text(
                       "X - Store",
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          fontSize: 45,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(
+                              fontSize: 45,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700),
                     ),
-                  ),
-                  Text(
-                    "Real Time\nMarket Pricing",
-                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                        color: Colors.white,
-                        fontSize: 27,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              )),
-              const SizedBox(height: BUTTON_SEPARATION_SPACE * 2.5),
-              AppButton(
-                callback: () =>
-                    Navigator.pushNamed(context, RouterGenerator.loginRoute),
-                label: "Sign In",
-                color: secondaryColor,
-                solid: false,
-                buttonType: ButtonType.SECONDARY,
-                width: size.width * 0.9,
-              ),
-              const SizedBox(height: BUTTON_SEPARATION_SPACE * 2.5),
-              AppButton(
-                callback: () =>
-                    Navigator.pushNamed(context, RouterGenerator.registerRoute),
-                label: "Sign Up",
-                color: Colors.white,
-                buttonType: ButtonType.PRIMARY,
-                width: size.width * 0.9,
-              ),
-              const SizedBox(height: BUTTON_SEPARATION_SPACE * 1.5),
-            ],
+                    Text(
+                      "Real Time\nMarket Pricing",
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: Colors.white,
+                          fontSize: 27,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                )),
+                const SizedBox(height: BUTTON_SEPARATION_SPACE * 2.5),
+                AppButton(
+                  callback: () =>
+                      Navigator.pushNamed(context, RouterGenerator.loginRoute),
+                  label: "Sign In",
+                  color: secondaryColor,
+                  solid: false,
+                  buttonType: ButtonType.SECONDARY,
+                  width: size.width * 0.9,
+                ),
+                const SizedBox(height: BUTTON_SEPARATION_SPACE * 2.5),
+                AppButton(
+                  callback: () => Navigator.pushNamed(
+                      context, RouterGenerator.registerRoute),
+                  label: "Sign Up",
+                  color: Colors.white,
+                  buttonType: ButtonType.PRIMARY,
+                  width: size.width * 0.9,
+                ),
+                const SizedBox(height: BUTTON_SEPARATION_SPACE * 1.5),
+              ],
+            ),
           ),
         ),
       ),

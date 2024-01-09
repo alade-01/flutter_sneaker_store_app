@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Source/source_shelf.dart';
 import '../../../../Components/items/live_stroy_item.dart';
 import '../../../../Components/shared/sender.dart';
 
@@ -14,14 +13,13 @@ class Story extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: hh(s, 74)),
-          horizontalPadding30(
-            s,
-            child: Text(
-              "Today",
-              style: bold28(s, black100),
-            ),
-          ),
+          SizedBox(height: (s.height * 74) / 812),
+    Text(
+    "Today",
+    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+    fontSize: 16,
+    fontWeight: FontWeight.w500),
+    ),
           LiveStroyItem(
             title: "Welcome to X-Store",
             sender: Sender(
@@ -29,15 +27,15 @@ class Story extends StatelessWidget {
               views: "2.1K views",
               time: "3min ago",
             ),
-            img: "assets/images/p7.png",
+            img: "res/images/p7.png",
           ),
-          SizedBox(height: hh(s, 20)),
+          SizedBox(height: (s.height * 20) / 812),
           LiveStroyItem(
             action: Container(
-              width: ww(s, 48),
-              height: ww(s, 48),
+              width: (s.width * 48) / 375,
+              height: (s.width * 48) / 375,
               child: SvgPicture.asset(
-                "assets/icons/play.svg",
+                "res/icons/play.svg",
                 fit: BoxFit.cover,
               ),
             ),
@@ -46,23 +44,26 @@ class Story extends StatelessWidget {
               name: "Unbox theraphy",
               views: "2.1K views",
               time: "3min ago",
-              img: "assets/images/u1.png",
+              img: "res/images/u1.png",
             ),
-            img: "assets/images/p6.png",
+            img: "res/images/p6.png",
           ),
-          SizedBox(height: hh(s, 20)),
+          SizedBox(height: (s.height * 20) / 812),
           LiveStroyItem(
             action: Container(
-              width: ww(s, 36),
-              height: hh(s, 20),
+              width: (s.width * 36) / 375,
+              height: (s.height * 20) / 812,
               child: Text(
                 "LIVE",
                 textAlign: TextAlign.center,
-                style: bold11(s, white100),
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                  color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500),
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(ww(s, 6)),
-                color: red,
+                borderRadius: BorderRadius.circular((s.width * 6) / 375),
+                color: Colors.red,
               ),
             ),
             title:
@@ -71,22 +72,22 @@ class Story extends StatelessWidget {
               name: "fideletty",
               views: "2.1K views",
               time: "3min ago",
-              img: "assets/images/u2.png",
+              img: "res/images/u2.png",
             ),
-            img: "assets/images/p5.png",
+            img: "res/images/p5.png",
           ),
-          SizedBox(height: hh(s, 20)),
+          SizedBox(height: (s.height * 20) / 812),
           LiveStroyItem(
             title: "About Jordan 1 Mid Chicago Toe",
             sender: Sender(
               name: "TheOffWhite",
               views: "2.1K views",
               time: "3min ago",
-              img: "assets/images/u3.png",
+              img: "res/images/u3.png",
             ),
-            img: "assets/images/p4.png",
+            img: "res/images/p4.png",
           ),
-          SizedBox(height: hh(s, 20)),
+          SizedBox(height: (s.height * 20) / 812),
         ],
       ),
     );

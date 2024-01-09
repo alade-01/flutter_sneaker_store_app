@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Components/components_shelf.dart';
-import 'package:x_store/Source/source_shelf.dart';
+
+import '../../../Components/shared/CircleButton.dart';
 
 class SearchBarR extends StatefulWidget {
   const SearchBarR({
@@ -49,7 +49,7 @@ class _SearchBarRState extends State<SearchBarR> {
     Size s = MediaQuery.of(context).size;
     return Container(
       width: double.infinity,
-      height: hh(s, 56),
+      height: (s.height * 56) / 812,
       child: Row(
         children: [
           Expanded(
@@ -61,39 +61,38 @@ class _SearchBarRState extends State<SearchBarR> {
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(10),
                     child: SvgPicture.asset(
-                      "assets/icons/search.svg",
+                      "res/icons/search.svg",
                     ),
                   ),
                   suffixIcon: Padding(
                     padding: const EdgeInsets.all(10),
                     child: SvgPicture.asset(
-                      "assets/icons/filter.svg",
+                      "res/icons/filter.svg",
                     ),
                   ),
                   border: InputBorder.none,
                   hintText: "Search",
-                  hintStyle: bold16(s, black30),
+                  hintStyle: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500),
                 ),
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(56),
-                color: black5,
+                color: Colors.black,
               ),
             ),
           ),
-          SizedBox(width: ww(s, 8)),
+          SizedBox(width: (s.width * 8) / 375),
           CircleButton(
-            s: s,
             onTap: () {
               FocusScope.of(context).unfocus();
               _onFocusChange();
             },
-            color: black10,
             child: SvgPicture.asset(
-              !focused ? "assets/icons/camera.svg" : "assets/icons/close.svg",
-              width: ww(s, 24),
+              !focused ? "res/icons/camera.svg" : "res/icons/close.svg",
+              width: (s.width *  24) / 375),
             ),
-          ),
         ],
       ),
     );

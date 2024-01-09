@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 import 'the_info_item.dart';
 
@@ -24,18 +23,21 @@ class TheInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: ww(s, 375),
-      height: hh(s, height),
+      width: (s.width * 375) / 375,
+      height: (s.height * height) / 812,
       color: bgColor,
       padding: EdgeInsets.symmetric(
-          horizontal: secondaryPadding(s), vertical: hh(s, 40)),
+          horizontal: (s.width * 30) / 375, vertical: (s.height * 40) / 812),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             header,
-            style: bold20(s, black100),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.w500),
           ),
           ...List.generate(infoItems.length, (index) => infoItems[index]),
           child ?? Container(),

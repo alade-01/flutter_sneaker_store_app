@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 class Sales extends StatelessWidget {
   const Sales({
     Key? key,
-    required this.s,
+    required this.size,
   }) : super(key: key);
 
-  final Size s;
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: hh(s, 192.5),
+      height: (size.height * 192.5) / 812,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SalesHeader(s: s),
+          SalesHeader(size: size),
           Divider(
-            color: black30,
-            height: hh(s, 0.5),
+            color: Colors.black.withOpacity(0.3),
+            height: (size.height * 0.5) / 812,
           ),
           ...List.generate(salesItems.length, (index) => salesItems[index]),
         ],
@@ -73,35 +72,46 @@ class SalesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size s = MediaQuery.of(context).size;
     return Row(
       children: [
         Expanded(
           flex: 1,
           child: Text(
             size,
-            style: regular12(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
         ),
         Expanded(
           flex: 2,
           child: Text(
             price,
-            style: regular12(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
         ),
         Expanded(
           flex: 3,
           child: Text(
             date,
-            style: regular12(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
         ),
         Expanded(
           flex: 3,
           child: Text(
             time,
-            style: regular12(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
         ),
       ],
@@ -112,10 +122,10 @@ class SalesItem extends StatelessWidget {
 class SalesHeader extends StatelessWidget {
   const SalesHeader({
     Key? key,
-    required this.s,
+    required this.size,
   }) : super(key: key);
 
-  final Size s;
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
@@ -125,28 +135,40 @@ class SalesHeader extends StatelessWidget {
           flex: 1,
           child: Text(
             "Size",
-            style: bold12(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
         ),
         Expanded(
           flex: 2,
           child: Text(
             "Sale Price",
-            style: bold12(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
         ),
         Expanded(
           flex: 3,
           child: Text(
             "Date",
-            style: bold12(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
         ),
         Expanded(
           flex: 3,
           child: Text(
             "Time",
-            style: bold12(s, black100),
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
           ),
         ),
       ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 class SectionItem extends StatelessWidget {
   const SectionItem({
@@ -16,15 +15,18 @@ class SectionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
     return Container(
-      height: hh(s, 44),
+      height: (s.height * 44) / 812,
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.only(top: hh(s, 10)),
+      margin: EdgeInsets.only(top: (s.height * 10) / 812),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
-            style: regular20(s, black100),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500)
           ),
           SvgPicture.asset(icon),
         ],

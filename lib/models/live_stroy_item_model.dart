@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import '../Components/shared/sender.dart';
 
 class LiveStroyItemModel {
-  final String title;
-  final String img;
+  final String title,img;
   final Widget? action;
   final Sender sender;
 

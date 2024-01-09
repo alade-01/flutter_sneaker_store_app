@@ -1,25 +1,29 @@
 import 'package:x_store/Models/product_item_model.dart';
+List products = [
+  {
+    "icon": "res/icons/nike.svg",
+    "img": "res/images/p25.png",
+    "model": "Nike ISPA Overreact Sail Multi",
+    "title": "Lowest Ask",
+    "price": "\$233"
+  },
+  {
+    "icon": "res/icons/adidas.svg",
+    "img": "res/images/p24.png",
+    "model": "ADIDAS Yeezy Boost 700 MNVN Bone",
+    "title": "Lowest Ask",
+    "price": "\$373"
+  },
+  {
+    "icon": "res/icons/jordan.svg",
+    "img": "res/images/p23.png",
+    "model": "Jordan 11 Retro Low White Concord (W)",
+    "title": "Lowest Ask",
+    "price": "\$233"
+  },
+];
 
 List<ProductItemModel> justDroppedItems = [
-  ProductItemModel(
-    "assets/icons/nike.svg",
-    "assets/images/p25.png",
-    "Nike ISPA Overreact Sail Multi",
-    "Lowest Ask",
-    "\$233",
-  ),
-  ProductItemModel(
-    "assets/icons/adidas.svg",
-    "assets/images/p24.png",
-    "ADIDAS Yeezy Boost 700 MNVN Bone",
-    "Lowest Ask",
-    "\$373",
-  ),
-  ProductItemModel(
-    "assets/icons/jordan.svg",
-    "assets/images/p23.png",
-    "Jordan 11 Retro Low White Concord (W)",
-    "Lowest Ask",
-    "\$233",
-  ),
+  for (var item in products)
+    ProductItemModel("${item["icon"]}","${item["img"]}",item["model"],item["title"],item["price"]),
 ];

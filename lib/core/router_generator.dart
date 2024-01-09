@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/windows/dashboard/Home/new_and_popular/product_details/product_detail.dart';
 // import 'package:login_register_app_ui_kit/windows/login_screen.dart';
 // import 'package:login_register_app_ui_kit/windows/new_password_screen.dart';
 // import 'package:login_register_app_ui_kit/windows/otp_screen.dart';
@@ -12,6 +11,7 @@ import '../windows/auth/register_screen.dart';
 import '../windows/auth/sign_in_screen.dart';
 import '../windows/auth/welcome_screen.dart';
 import '../windows/dashboard/Profile/settings.dart';
+import '../windows/dashboard/new_and_popular/product_details/product_detail.dart';
 import '../windows/index_screen.dart';
 // import '../windows/forgot_password_screen.dart';
 // import '../windows/splash_screen.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
+
 
 class BaseSection extends StatelessWidget {
   const BaseSection({
@@ -18,16 +18,16 @@ class BaseSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height ?? hh(s, 282),
+      height: height ?? (s.height * 282) / 812,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          horizontalPadding30(
-            s,
-            child: Text(
-              header,
-              style: bold20(s, black100),
-            ),
+          Text(
+            header,
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+          color: Colors.black,
+          fontSize: 30,
+          fontWeight: FontWeight.w700)
           ),
           Spacer(),
           content,

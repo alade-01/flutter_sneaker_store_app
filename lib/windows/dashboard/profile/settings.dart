@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Components/components_shelf.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
+import '../../../Components/shared/CircleButton.dart';
 import '../../../Data/section_items_data.dart';
 
 class Settings extends StatelessWidget {
@@ -15,84 +13,88 @@ class Settings extends StatelessWidget {
       body: Container(
         width: s.width,
         height: s.height,
-        child: horizontalPadding30(
-          s,
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: hh(s, 52)),
-                CircleButton(
-                  s: s,
-                  onTap: () => back(context),
-                  child: SvgPicture.asset("assets/icons/chevronLeft.svg"),
-                  color: black5,
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: (s.height * 52) / 812),
+              CircleButton(
+                onTap: () => Navigator.of(context),
+                child: Icon(Icons.arrow_back,color: Colors.black),
+              ),
+              SizedBox(height: (s.height * 20) / 812),
+              Container(
+                height: (s.height * 44) / 812,
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Settings",
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
                 ),
-                SizedBox(height: hh(s, 20)),
-                Container(
-                  height: hh(s, 44),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Settings",
-                    style: bold20(s, black100),
-                  ),
-                ),
-                SizedBox(height: hh(s, 20)),
-                Container(
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "My Account",
-                        style: bold12(s, black30),
+              ),
+              SizedBox(height: (s.height * 20) / 812),
+              Container(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "My Account",
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(height: (s.height * 10) / 812),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: List.generate(
+                        accountItems.length,
+                            (index) => accountItems[index],
                       ),
-                      SizedBox(height: hh(s, 10)),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: List.generate(
-                          accountItems.length,
-                              (index) => accountItems[index],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: hh(s, 40)),
-                Container(
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Information",
-                        style: bold12(s, black30),
+              ),
+              SizedBox(height: (s.height * 40) / 812),
+              Container(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Information",
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(height: (s.height * 10) / 812),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: List.generate(
+                        infoItems.length,
+                            (index) => infoItems[index],
                       ),
-                      SizedBox(height: hh(s, 10)),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: List.generate(
-                          infoItems.length,
-                              (index) => infoItems[index],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: hh(s, 40)),
-                Container(
-                  height: hh(s, 44),
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(top: hh(s, 10)),
-                  child: Text(
-                    "Sign Out",
-                    style: regular20(s, red),
-                  ),
+              ),
+              SizedBox(height: (s.height * 40) / 812),
+              Container(
+                height: (s.height * 44) / 812,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(top: (s.height * 10) / 812),
+                child: Text(
+                  "Sign Out",
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Colors.red,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
                 ),
-                SizedBox(height: hh(s, 40)),
-              ],
-            ),
+              ),
+              SizedBox(height: (s.height * 40) / 812),
+            ],
           ),
         ),
       ),

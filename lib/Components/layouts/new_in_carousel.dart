@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 class NewInCarousel extends StatefulWidget {
   const NewInCarousel({Key? key}) : super(key: key);
@@ -16,7 +15,7 @@ class _NewInCarouselState extends State<NewInCarousel> {
     Size s = MediaQuery.of(context).size;
     return Container(
       width: double.infinity,
-      height: hh(s, 330),
+      height: (s.height * 330) / 812,
       child: Stack(
         children: [
           PageView.builder(
@@ -29,29 +28,38 @@ class _NewInCarouselState extends State<NewInCarousel> {
             },
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: hh(s, 30)),
+                padding: EdgeInsets.symmetric(horizontal: (s.height * 30) / 812),
                 child: Container(
-                  height: hh(s, 330),
+                  height: (s.height * 330) / 812,
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: hh(s, 24), vertical: hh(s, 24)),
+                        horizontal: (s.height * 24) / 812, vertical: (s.height * 24) / 812),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
                           "New In",
-                          style: bold12(s, white100),
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w700),
                         ),
                         SizedBox(height: 8),
                         Text(
                           newInItems[page].model,
-                          style: bold20(s, white100),
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w700),
                         ),
                         SizedBox(height: 8),
                         Text(
                           "\$${newInItems[page].price} USD",
-                          style: bold14(s, white100),
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w700),
                         ),
                         SizedBox(height: 16),
                       ],
@@ -62,7 +70,7 @@ class _NewInCarouselState extends State<NewInCarousel> {
                         image: AssetImage(newInItems[index].img),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(
-                      hh(s, 12),
+                        (s.height * 12) / 812,
                     ),
                   ),
                 ),
@@ -70,19 +78,19 @@ class _NewInCarouselState extends State<NewInCarousel> {
             },
           ),
           Positioned(
-            left: ww(s, 54),
-            bottom: ww(s, 24),
+            left: (s.width * 54) / 375,
+            bottom: (s.width * 24) / 375,
             child: Row(
               children: List.generate(newInItems.length, (index) {
                 return AnimatedContainer(
                   duration: Duration(milliseconds: 320),
-                  width: newInItems[index].id == page ? ww(s, 40) : ww(s, 6),
-                  height: hh(s, 2),
+                  width: newInItems[index].id == page ? (s.width * 40) / 375 : (s.width * 6) / 375,
+                  height: (s.height * 2) / 812,
                   margin: EdgeInsets.only(
-                      right: index != (newInItems.length - 1) ? ww(s, 4) : 0),
+                      right: index != (newInItems.length - 1) ? (s.width * 4) / 375 : 0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
-                    color: newInItems[index].id == page ? white100 : white60,
+                      color: newInItems[index].id == page ? Colors.white : Colors.white.withOpacity(0.5),
                   ),
                 );
               }),
@@ -104,14 +112,14 @@ class NewInItemModel {
 }
 
 List<NewInItemModel> newInItems = [
-  NewInItemModel(0, "assets/images/p9.png",
+  NewInItemModel(0, "res/images/p9.png",
       "Nike SB Janoski QS Turbo Green Tie Dye Skate Shoes", 89.95),
-  NewInItemModel(1, "assets/images/p7.png",
+  NewInItemModel(1, "res/images/p7.png",
       "Nike SB Janoski QS Turbo Green Tie Dye Skate Shoes", 79.95),
-  NewInItemModel(2, "assets/images/p6.png",
+  NewInItemModel(2, "res/images/p6.png",
       "Nike SB Janoski QS Turbo Green Tie Dye Skate Shoes", 65.95),
-  NewInItemModel(3, "assets/images/p5.png",
+  NewInItemModel(3, "res/images/p5.png",
       "Nike SB Janoski QS Turbo Green Tie Dye Skate Shoes", 77.95),
-  NewInItemModel(4, "assets/images/p4.png",
+  NewInItemModel(4, "res/images/p4.png",
       "Nike SB Janoski QS Turbo Green Tie Dye Skate Shoes", 59.95),
 ];

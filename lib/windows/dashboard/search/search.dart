@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 
 import 'search_bar_r.dart';
@@ -26,30 +25,34 @@ class Search extends StatelessWidget {
     return Container(
       width: s.width,
       height: s.height,
-      color: white100,
-      padding: EdgeInsets.symmetric(horizontal: ww(s, 30)),
+      color: Colors.white,
+      padding: EdgeInsets.symmetric(horizontal: (s.width * 30) / 375),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: hh(s, 52)),
+            SizedBox(height: (s.height * 52) / 812),
             Text(
               "Search",
-              style: bold28(s, black100),
+              style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: hh(s, 20)),
+            SizedBox(height: (s.height * 20) / 812),
             SearchBarR(),
-            SizedBox(height: hh(s, 20)),
+            SizedBox(height: (s.height * 20) / 812),
             Column(
               children: List.generate(
                 recommendedSearch.length,
                     (index) => MaterialButton(
                   onPressed: () {},
                   minWidth: double.infinity,
-                  height: hh(s, 40),
+                  height: (s.height * 40) / 812,
                   child: Text(
                     recommendedSearch[index],
-                    style: regular16(s, black100),
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
                   ),
                 ),
               ),

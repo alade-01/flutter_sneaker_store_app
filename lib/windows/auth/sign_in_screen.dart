@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
-import '../../Components/CircleButton.dart';
+import '../../Components/shared/CircleButton.dart';
 import '../../Components/shared/app_button.dart';
 import '../../Components/shared/ordivider.dart';
 import '../../core/constants.dart';
@@ -41,14 +39,8 @@ class _SignInScreenState extends State<SignInScreen>{
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CircleButton(
-                    s: size,
-                    onTap: () => back(context),
-                    color: black5,
-                    child: SvgPicture.asset(
-                      "assets/icons/close.svg",
-                      width: hh(size, 24),
-                      height: hh(size, 24),
-                    ),
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Icon(Icons.close,color: Colors.black),
                   ),
                   const SizedBox(height: BUTTON_SEPARATION_SPACE * 1.5),
                   Text(
@@ -188,11 +180,11 @@ class _SignInScreenState extends State<SignInScreen>{
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SocialSign(s: size, icon: "assets/icons/logoTwitter.svg"),
+                      SocialAuth(icon: "res/icons/logoTwitter.svg"),
                       const SizedBox(width: BUTTON_SEPARATION_SPACE * 1.5),
-                      SocialSign(s: size, icon: "assets/icons/logoFacebook.svg"),
+                      SocialAuth(icon: "res/icons/logoFacebook.svg"),
                       const SizedBox(width: BUTTON_SEPARATION_SPACE * 1.5),
-                      SocialSign(s: size, icon: "assets/icons/logoApple.svg"),
+                      SocialAuth(icon: "res/icons/logoApple.svg"),
                     ],
                   ),
                 ],

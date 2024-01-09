@@ -1,9 +1,13 @@
 import 'package:x_store/Models/brand_list_item_model.dart';
+List products = [
+  {"icon": "res/icons/nike.svg", "name": "NIKE","numb": 601},
+  {"icon": "res/icons/adidas.svg", "name": "Adidas","numb": 601},
+  {"icon": "res/icons/vans.svg", "name": "Vans","numb": 601},
+  {"icon": "res/icons/newBalance.svg", "name": "NewBalance","numb": 601},
+  {"icon": "res/icons/vans.svg", "name": "Vans","numb": 601},
+];
 
 List<BrandListItemModel> brandItems = [
-  BrandListItemModel("assets/icons/nike.svg", "NIKE", 601),
-  BrandListItemModel("assets/icons/adidas.svg", "Adidas", 601),
-  BrandListItemModel("assets/icons/vans.svg", "Vans", 601),
-  BrandListItemModel("assets/icons/newBalance.svg", "NewBalance", 601),
-  BrandListItemModel("assets/icons/vans.svg", "Vans", 601),
+for (var item in products)
+  BrandListItemModel("${item["icon"]}", "${item["name"]}", item["numb"])
 ];

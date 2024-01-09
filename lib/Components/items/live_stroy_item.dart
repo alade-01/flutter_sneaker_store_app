@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
 import '../../core/router_generator.dart';
-import 'story_item_detail.dart';
 
 
 class LiveStroyItem extends StatelessWidget {
@@ -24,53 +22,56 @@ class LiveStroyItem extends StatelessWidget {
     return GestureDetector(
       onTap:  () => Navigator.pushNamed(context, RouterGenerator.storyDetailRoute),
       child: Container(
-        width: ww(s, 315),
-        height: ww(s, 315),
-        margin: EdgeInsets.only(left: ww(s, 30)),
+        width: (s.width * 315) / 375,
+        height: (s.width * 315) / 375,
+        margin: EdgeInsets.only(left: (s.width * 30) / 375),
         child: Stack(
           children: [
             Container(
-              width: ww(s, 315),
-              height: ww(s, 315),
-              padding: EdgeInsets.all(ww(s, 24)),
+              width: (s.width * 315) / 375,
+              height: (s.width * 315) / 375 ,
+                padding: EdgeInsets.all((s.width * 24) / 375),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   action ?? Container(),
-                  SizedBox(height: hh(s, 10)),
+                  SizedBox(height: (s.height * 10) / 812),
                   Text(
                     title,
-                    style: bold20(s, white100),
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700),
                   ),
-                  SizedBox(height: hh(s, 8)),
+                  SizedBox(height: (s.height * 8) / 812),
                   sender,
                 ],
               ),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [black30, Colors.transparent],
+                  colors: [Colors.black.withOpacity(0.3), Colors.transparent],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                 ),
-                borderRadius: BorderRadius.circular(ww(s, 12)),
+                borderRadius: BorderRadius.circular((s.width * 12) / 375),
               ),
             ),
           ],
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(ww(s, 12)),
+          borderRadius: BorderRadius.circular((s.width * 12) / 375),
           image: DecorationImage(
             image: AssetImage(img),
             fit: BoxFit.cover,
           ),
           border: Border.all(
-            color: black5,
-            width: ww(s, 0.5),
+            color: Colors.black.withOpacity(0.5),
+            width: (s.width * 0.5) / 375,
           ),
           boxShadow: [
             BoxShadow(
-              color: black10,
+              color: Colors.black.withOpacity(0.8),
               offset: Offset(0, 8),
               blurRadius: 16,
             ),
