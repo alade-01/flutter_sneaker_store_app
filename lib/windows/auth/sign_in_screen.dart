@@ -98,7 +98,7 @@ class _SignInScreenState extends State<SignInScreen>{
                               hintText: "Enter your password",
                               suffixIcon: GestureDetector(
                                 onTap: () {
-                                  setState(() {
+                                  setState(() { 
                                     _obscureText = !_obscureText;
                                   });
                                 },

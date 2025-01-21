@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/constants.dart';
+
 class NewInCarousel extends StatefulWidget {
   const NewInCarousel({Key? key}) : super(key: key);
 
@@ -14,7 +16,7 @@ class _NewInCarouselState extends State<NewInCarousel> {
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
     return Container(
-      width: double.infinity,
+      width: s.width,
       height: (s.height * 330) / 812,
       child: Stack(
         children: [
@@ -28,40 +30,30 @@ class _NewInCarouselState extends State<NewInCarousel> {
             },
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: (s.height * 30) / 812),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
                   height: (s.height * 330) / 812,
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: (s.height * 24) / 812, vertical: (s.height * 24) / 812),
+                        horizontal: 10, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(
-                          "New In",
-                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          newInItems[page].model,
-                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          "\$${newInItems[page].price} USD",
-                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        RichText(
+                          text: TextSpan(
+                            text: "New In\n",
+                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                 color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w700),
+                                fontSize: 30/1.3,
+                                fontWeight: FontWeight.w600),
+                            children: <TextSpan>[
+                              TextSpan(text: newInItems[page].model),
+                              TextSpan(text: " \$${newInItems[page].price} USD"),
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: BUTTON_SEPARATION_SPACE * 2.8),
                       ],
                     ),
                   ),
@@ -78,7 +70,7 @@ class _NewInCarouselState extends State<NewInCarousel> {
             },
           ),
           Positioned(
-            left: (s.width * 54) / 375,
+            left: 27,
             bottom: (s.width * 24) / 375,
             child: Row(
               children: List.generate(newInItems.length, (index) {

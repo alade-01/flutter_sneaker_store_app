@@ -10,6 +10,7 @@ import '../../../../Data/brand_list_item_data.dart';
 import '../../../../Data/just_dropped_item_data.dart';
 import '../../../../Data/most_popular_data.dart';
 import '../../../../Data/recommended_item_data.dart';
+import '../../../core/constants.dart';
 
 
 List<Column> horizontalData(Size s, List<ProductItemModel> items) {
@@ -41,19 +42,23 @@ class NewAndPopular extends StatelessWidget {
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
     return SingleChildScrollView(
+      padding: EdgeInsets.all(0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: (s.height * 74) / 812),
-    Text(
-    "Today",
-    style:  Theme.of(context).textTheme.labelLarge!.copyWith(
-    color: Colors.white,
-    fontSize: 16,
-    fontWeight: FontWeight.w500),
+    Padding(
+      padding: const EdgeInsets.only(left: 10.0,bottom: 10),
+      child: Text(
+      "Today",
+      style:  Theme.of(context).textTheme.titleMedium!.copyWith(
+          color: Colors.black,
+      fontSize: 18,
+      fontWeight: FontWeight.w600),
+      ),
     ),
           NewInCarousel(),
-          SizedBox(height: (s.height * 60) / 812),
+          const SizedBox(height: BUTTON_SEPARATION_SPACE * 1.8),
           BaseSection(
             s: s,
             header: "Just Dropped",

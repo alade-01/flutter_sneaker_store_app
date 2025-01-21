@@ -22,12 +22,15 @@ class BaseSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            header,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-          color: Colors.black,
-          fontSize: 30,
-          fontWeight: FontWeight.w700)
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0),
+            child: Text(
+              header,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.w600)
+            ),
           ),
           Spacer(),
           content,
