@@ -1,134 +1,237 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:x_store/Components/components_shelf.dart';
-import 'package:x_store/Source/source_shelf.dart';
 
+import '../../Components/shared/CircleButton.dart';
 import '../../Components/shared/app_button.dart';
+import '../../Components/shared/ordivider.dart';
 import '../../core/constants.dart';
 import '../../core/router_generator.dart';
-import '../../Components/shared/InputWithIcon.dart';
 import '../../Components/shared/SocialSign.dart';
+import '../../core/utilis.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  //Initially password is obscure
+  bool _obscureTextFieldOne = true,
+      _obscureTextFieldTwo = true,
+      loading = false;
+
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  final TextEditingController _userController = TextEditingController(),
+      _emailController = TextEditingController(),
+      _passwordController = TextEditingController(),
+      _passwordControllerConfirm = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
-    Size s = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
-        width: s.width,
-        height: s.height,
-        child: horizontalPadding30(
-          s,
-          child: SingleChildScrollView(
+      body: SizedBox(
+        width: size.width,
+        height: size.height,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: hh(s, 74)),
                 CircleButton(
-                  s: s,
-                  onTap: () => back(context),
-                  color: black5,
-                  child: SvgPicture.asset(
-                    "assets/icons/close.svg",
-                    width: hh(s, 24),
-                    height: hh(s, 24),
-                  ),
+                  onTap: () => Navigator.of(context).pop(),
+                  child: Icon(Icons.close,color: Colors.black),
                 ),
-                SizedBox(height: hh(s, 30)),
+                const SizedBox(height: BUTTON_SEPARATION_SPACE * 1.5),
                 Text(
                   "Let's Get Started!",
-                  style: bold28(s, black100),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: primaryColor,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700),
                 ),
-                SizedBox(height: hh(s, 8)),
-                Text(
-                  "Sign up with social or the fill the form to continue.",
-                  style: regular12(s, black60),
-                ),
-                SizedBox(height: hh(s, 18)),
-                Row(
-                  children: [
-                    SocialSign(s: s, icon: "assets/icons/logoTwitter.svg"),
-                    SizedBox(width: ww(s, 16)),
-                    SocialSign(s: s, icon: "assets/icons/logoFacebook.svg"),
-                    SizedBox(width: ww(s, 16)),
-                    SocialSign(s: s, icon: "assets/icons/logoApple.svg"),
-                  ],
-                ),
-                SizedBox(height: hh(s, 20)),
-                Divider(
-                  color: black30,
-                  height: hh(s, 0.5),
-                ),
-                SizedBox(height: hh(s, 28)),
-                InputWithIcon(
-                  s: s,
-                  icon: Icons.mail_outline_rounded,
-                  hint: "Email",
-                ),
-                SizedBox(height: hh(s, 10)),
-                InputWithIcon(
-                  s: s,
-                  icon: Icons.person_outline_rounded,
-                  hint: "Name",
-                ),
-                SizedBox(height: hh(s, 10)),
-                InputWithIcon(
-                  s: s,
-                  icon: Icons.lock_outline_rounded,
-                  hint: "Password",
-                  secured: true,
-                ),
-                SizedBox(height: hh(s, 8)),
-                Text(
-                  "At least 8 characters, 1 uppercase, 1 number, 1 symbol",
-                  style: regular11(s, black30),
-                ),
-                SizedBox(height: hh(s, 110)),
-                Container(
-                  height: hh(s, 32),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                Form(
+                  key: formKey,
+                  child: Column(
                     children: [
-                      SvgPicture.asset("assets/icons/checkOff.svg"),
-                      SizedBox(width: ww(s, 8)),
                       Container(
-                        width: ww(s, 283),
-                        child: Wrap(
-                          children: [
-                            Text(
-                              "By Signing up, you agree to the ",
-                              style: regular12(s, black30),
+                        margin: const EdgeInsets.only(bottom: 17),
+                        child: TextFormField(
+                          controller: _userController,
+                          style: textStyleInput,
+                          validator: (String? value) {
+                            if (value != null && value.isEmpty) {
+                              return "This field is required";
+                            }
+                            if (value != null &&
+                                value.isNotEmpty &&
+                                value.length <= 4) {
+                              return "5 digits minimum";
+                            }
+                            return null;
+                          },
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(
+                              CupertinoIcons.person,
                             ),
-                            Text(
-                              "Terms of Service",
-                              style: regular12(s, black100),
+                            hintText: "Username",
+                          ),
+                          keyboardType: TextInputType.text,
+                        ),
+                      ),
+                      Container(
+                        child: TextFormField(
+                          controller: _emailController,
+                          style: textStyleInput,
+                          validator: (String? value) {
+                            if (value != null && value.isEmpty) {
+                              return "This field is required";
+                            }
+                            if (value != null &&
+                                value.isNotEmpty &&
+                                !StringUtil.isValidEmail(value)) {
+                              return "The email is invalid";
+                            }
+                            return null;
+                          },
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(
+                              CupertinoIcons.at,
                             ),
-                            Text(
-                              " and ",
-                              style: regular12(s, black30),
+                            hintText: "Email",
+                          ),
+                          keyboardType: TextInputType.text,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 17),
+                        child: TextFormField(
+                          validator: (String? value) {
+                            if (value != null && value.isEmpty) {
+                              return "This field is required";
+                            }
+                            return null;
+                          },
+                          style: textStyleInput,
+                          controller: _passwordController,
+                          obscureText: _obscureTextFieldOne,
+                          decoration: InputDecoration(
+                            prefixIcon: const Icon(
+                              CupertinoIcons.lock,
                             ),
-                            Text(
-                              "Privacy Policy",
-                              style: regular12(s, black100),
+                            hintText: "Password",
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _obscureTextFieldOne =
+                                  !_obscureTextFieldOne;
+                                });
+                              },
+                              child: Icon(
+                                _obscureTextFieldOne
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
                             ),
-                          ],
+                          ),
+                          keyboardType: TextInputType.text,
+                        ),
+                      ),
+                      Container(
+                        child: TextFormField(
+                          validator: (String? value) {
+                            if (value != null && value.isEmpty) {
+                              return "This field is required";
+                            }
+                            if (value != _passwordController.text) {
+                              return "Different password";
+                            }
+                            return null;
+                          },
+                          style: textStyleInput,
+                          controller: _passwordControllerConfirm,
+                          obscureText: _obscureTextFieldTwo,
+                          decoration: InputDecoration(
+                            prefixIcon: const Icon(
+                              CupertinoIcons.lock,
+                            ),
+                            hintText: "Confirm Password",
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _obscureTextFieldTwo =
+                                  !_obscureTextFieldTwo;
+                                });
+                              },
+                              child: Icon(
+                                _obscureTextFieldTwo
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                            ),
+                          ),
+                          keyboardType: TextInputType.text,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: hh(s, 20)),
+                const SizedBox(height: BUTTON_SEPARATION_SPACE * 1.8),
                 AppButton(
-                  callback: () =>
-                      Navigator.pushNamed(context, RouterGenerator.loginRoute),
-                  label: "Sign In",
-                  color: secondaryColor,
-                  solid: false,
-                  buttonType: ButtonType.SECONDARY,
-                  width: s.width * 0.9,
+                  callback: () {
+                    if (formKey.currentState!.validate()) {
+                      Navigator.pushNamed(
+                          context, RouterGenerator.loginRoute);
+                    }
+                  },
+                  label: "Register",
+                  buttonType: ButtonType.PRIMARY,
+                  width: size.width,
                 ),
+                const SizedBox(height: BUTTON_SEPARATION_SPACE * 2),
+                Center(child: OrDivider()),
+                const SizedBox(height: BUTTON_SEPARATION_SPACE),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SocialAuth(icon: "res/icons/logoTwitter.svg"),
+                    const SizedBox(width: BUTTON_SEPARATION_SPACE * 1.5),
+                    SocialAuth(icon: "res/icons/logoFacebook.svg"),
+                    const SizedBox(width: BUTTON_SEPARATION_SPACE * 1.5),
+                    SocialAuth(icon: "res/icons/logoApple.svg"),
+                  ],
+                ),
+                const SizedBox(height: BUTTON_SEPARATION_SPACE * 2),
+                Center(
+                  child: InkWell(
+                    onTap: () =>
+                        Navigator.pushNamed(context, RouterGenerator.loginRoute),
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Already have an account? ',
+                        style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                            fontSize: 15,
+                            color: const Color(0xFF24282C),
+                            fontWeight: FontWeight.w500),
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Login Now',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .copyWith(
+                                  fontSize: 15,
+                                  color: primaryColor,
+                                  fontWeight: FontWeight.w700))
+                        ],
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

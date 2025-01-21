@@ -94,7 +94,7 @@ class AppButton extends StatelessWidget {
               foregroundColor: const MaterialStatePropertyAll(Colors.white),
               side: MaterialStatePropertyAll(
                 BorderSide(
-                  color: callback == null ? Colors.grey.shade500 : color0[900]!,
+                  color: callback == null ? Colors.grey.shade500 : Colors.white,
                   width: 1,
                 ),
               ),
@@ -109,7 +109,7 @@ class AppButton extends StatelessWidget {
               side: MaterialStatePropertyAll(
                 BorderSide(
                   color: callback == null ? Colors.grey.shade500 : color1[900]!,
-                  width: 1,
+                  width: 0,
                 ),
               ),
             );

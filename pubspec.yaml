@@ -44,48 +44,48 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
-    - assets/icons/
+    - res/images/
+    - res/icons/
 
   fonts:
     - family: Gilroy
       fonts:
-        - asset: assets/fonts/Gilroy/Gilroy-Thin.otf
+        - asset: res/fonts/Gilroy/Gilroy-Thin.otf
           weight: 100
-        - asset: assets/fonts/Gilroy/Gilroy-UltraLight.otf
+        - asset: res/fonts/Gilroy/Gilroy-UltraLight.otf
           weight: 200
-        - asset: assets/fonts/Gilroy/Gilroy-Light.otf
+        - asset: res/fonts/Gilroy/Gilroy-Light.otf
           weight: 300
-        - asset: assets/fonts/Gilroy/Gilroy-Regular.otf
+        - asset: res/fonts/Gilroy/Gilroy-Regular.otf
           weight: 400
-        - asset: assets/fonts/Gilroy/Gilroy-Medium.otf
+        - asset: res/fonts/Gilroy/Gilroy-Medium.otf
           weight: 500
-        - asset: assets/fonts/Gilroy/Gilroy-SemiBold.otf
+        - asset: res/fonts/Gilroy/Gilroy-SemiBold.otf
           weight: 600
-        - asset: assets/fonts/Gilroy/Gilroy-Bold.otf
+        - asset: res/fonts/Gilroy/Gilroy-Bold.otf
           weight: 700
-        - asset: assets/fonts/Gilroy/Gilroy-Extrabold.otf
+        - asset: res/fonts/Gilroy/Gilroy-Extrabold.otf
           weight: 800
-        - asset: assets/fonts/Gilroy/Gilroy-Black.otf
+        - asset: res/fonts/Gilroy/Gilroy-Black.otf
           weight: 900
 
     - family: Poppins
       fonts:
-        - asset: assets/fonts/Poppins/Poppins-Thin.ttf
+        - asset: res/fonts/Poppins/Poppins-Thin.ttf
           weight: 100
-        - asset: assets/fonts/Poppins/Poppins-ExtraLight.ttf
+        - asset: res/fonts/Poppins/Poppins-ExtraLight.ttf
           weight: 200
-        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+        - asset: res/fonts/Poppins/Poppins-Light.ttf
           weight: 300
-        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: res/fonts/Poppins/Poppins-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+        - asset: res/fonts/Poppins/Poppins-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+        - asset: res/fonts/Poppins/Poppins-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+        - asset: res/fonts/Poppins/Poppins-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Poppins/Poppins-ExtraBold.ttf
+        - asset: res/fonts/Poppins/Poppins-ExtraBold.ttf
           weight: 800
-        - asset: assets/fonts/Poppins/Poppins-Black.ttf
+        - asset: res/fonts/Poppins/Poppins-Black.ttf
           weight: 900
